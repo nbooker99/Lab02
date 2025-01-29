@@ -1,7 +1,7 @@
 ---
 title: "Lab 02 - Plastic waste"
-author: "Insert your name here"
-date: "Insert date here"
+author: "Noah Booker"
+date: "01/29/25"
 output: github_document
 ---
 
@@ -28,7 +28,15 @@ Remove this text, and add your answer for Exercise 1 here.
 ### Exercise 2
 
 ```{r plastic-waste-density}
-# insert code here
+ggplot(
+  data = plastic_waste,
+  mapping = aes(
+    x = plastic_waste_per_cap,
+    color = continent,
+    fill = continent
+  )
+) +
+  geom_density(alpha = 0.2)
 ```
 
 ### Exercise 3
