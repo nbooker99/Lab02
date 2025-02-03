@@ -8,7 +8,7 @@ output: github_document
 ## Load packages and data
 
 ```{r load-packages, message=FALSE}
-library(tidyverse) 
+library(tidyverse)
 ```
 
 ```{r load-data, message=FALSE}
@@ -19,10 +19,12 @@ plastic_waste <- read.csv("data/plastic-waste.csv")
 
 ### Exercise 1
 
-Remove this text, and add your answer for Exercise 1 here.
+Below are histograms plotting the distribution of plastic waste per capita faceted by continent.
+The majority of all continents' distributions of plastic waste per capita fall between 0 and .5 kg/day. For those continents which have countries with a plastic waste per capita above .5 kg/day, it seems that North America has the most followed by South America and Asia tied for second place.
 
 ```{r plastic-waste-continent}
-# insert code here
+ggplot(data = plastic_waste, aes(x = plastic_waste_per_cap)) +
+    geom_histogram(binwidth = 0.2) + facet_wrap(~continent)
 ```
 
 ### Exercise 2
