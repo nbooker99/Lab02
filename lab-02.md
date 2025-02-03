@@ -36,6 +36,12 @@ ggplot(data = plastic_waste, aes(x = plastic_waste_per_cap)) +
 
 ### Exercise 2
 
+Below, we define the color and fill of the curves by mapping aesthetics
+of the plot but define the alpha level as a characteristic of the
+plotting geom because we want color and fill to vary according to the
+data (by continent) but want the alpha level (transparency) to be
+applied the same way all the density curves.
+
 ``` r
 ggplot(
   data = plastic_waste,
