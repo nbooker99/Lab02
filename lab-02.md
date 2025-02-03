@@ -61,31 +61,83 @@ ggplot(
 
 ### Exercise 3
 
-Remove this text, and add your answer for Exercise 3 here.
+Unlike the box plots, the violin plots show the shape of the
+distribution. This allows one to visualize, for example, whether the
+distribution is multimodal (more than one peak). Unlike a violin plot,
+box plots explicitly mark the first and third quartiles, the median, and
+outliers of each distribution.
 
 ``` r
-# insert code here
+ggplot(
+  data = plastic_waste,
+  mapping = aes(
+    x = continent,
+    y = plastic_waste_per_cap
+  )
+) +
+  geom_violin()
 ```
+
+    ## Warning: Removed 51 rows containing non-finite outside the scale range
+    ## (`stat_ydensity()`).
+
+![](lab-02_files/figure-gfm/plastic-waste-violin-1.png)<!-- -->
 
 ### Exercise 4
 
-Remove this text, and add your answer for Exercise 4 here.
+The scatterplot below visualizes the relationship between plastic waste
+per capita and mismanaged plastic waste per capita. There seems to be an
+overall positive correlation. Also, there seems to be more variance in
+mismanaged plastic waste than in overall plastic waste (though they are
+visualized in different scales, so this may be misleading).
 
 ``` r
-# insert code here
+ggplot(data = plastic_waste, mapping = aes(x = plastic_waste_per_cap, y = mismanaged_plastic_waste_per_cap)) + geom_point()
 ```
 
-``` r
-# insert code here
-```
+    ## Warning: Removed 51 rows containing missing values or values outside the scale range
+    ## (`geom_point()`).
+
+![](lab-02_files/figure-gfm/plastic-waste-mismanaged-1.png)<!-- -->
+
+There seems to be an overall postive correlation between plastic waste
+per capita and mismanage plastic waste per capita. However, some
+continents seem to have a larger correlation. For instance, when
+comparing Africa to North America, it seems that as plastic waste per
+capita increases, mismanaged plastic saste per capita increases more
+quickly in Africa than it does in North America.
 
 ``` r
-# insert code here
+ggplot(data = plastic_waste, mapping = aes(x = plastic_waste_per_cap, y = mismanaged_plastic_waste_per_cap, color = continent)) + geom_point()
 ```
 
+    ## Warning: Removed 51 rows containing missing values or values outside the scale range
+    ## (`geom_point()`).
+
+![](lab-02_files/figure-gfm/plastic-waste-mismanaged-continent-1.png)<!-- -->
+
+There seems to be more variance in countries’ coastal populations than
+there is countries’ total population, but there doesn’t seem to be any
+notable differences in the relationship between the two of these
+variables and plastic waste per capita.
+
 ``` r
-# insert code here
+ggplot(data = plastic_waste, mapping = aes(x = plastic_waste_per_cap, y = total_pop, color = continent)) + geom_point()
 ```
+
+    ## Warning: Removed 61 rows containing missing values or values outside the scale range
+    ## (`geom_point()`).
+
+![](lab-02_files/figure-gfm/plastic-waste-population-total-1.png)<!-- -->
+
+``` r
+ggplot(data = plastic_waste, mapping = aes(x = plastic_waste_per_cap, y = coastal_pop, color = continent)) + geom_point()
+```
+
+    ## Warning: Removed 51 rows containing missing values or values outside the scale range
+    ## (`geom_point()`).
+
+![](lab-02_files/figure-gfm/plastic-waste-population-coastal-1.png)<!-- -->
 
 ### Exercise 5
 
