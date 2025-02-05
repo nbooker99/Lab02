@@ -141,8 +141,41 @@ ggplot(data = plastic_waste, mapping = aes(x = plastic_waste_per_cap, y = coasta
 
 ### Exercise 5
 
-Remove this text, and add your answer for Exercise 5 here.
+(I cheated a little bit by finding the code for the graph below in the
+github folders for the class slides.) The graph seems to show that there
+is a positive assocation between the proportion of a country’s
+population that is on the coast and its plastic waste per capita, though
+this association levels off at the higher end of coastal population
+proportion.
 
 ``` r
-# insert code here
+plastic_waste %>%
+  mutate(coastal_pop_prop = coastal_pop / total_pop) %>%
+  filter(plastic_waste_per_cap < 3) %>%
+  ggplot(aes(
+    x = coastal_pop_prop,
+    y = plastic_waste_per_cap,
+    color = continent
+  )) +
+  geom_point() +
+  geom_smooth(color = "black") +
+  scale_color_viridis_d() +
+  labs(
+    x = "Coastal population proportion (Coastal / total population)",
+    y = "Plastic waste per capita ",
+    color = "Continent",
+    title = "Plastic waste vs. coastal population proportion",
+    subtitle = "by continent"
+  ) +
+  theme_minimal()
 ```
+
+    ## `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
+
+    ## Warning: Removed 10 rows containing non-finite outside the scale range
+    ## (`stat_smooth()`).
+
+    ## Warning: Removed 10 rows containing missing values or values outside the scale range
+    ## (`geom_point()`).
+
+![](lab-02_files/figure-gfm/recreate-viz-1.png)<!-- -->
